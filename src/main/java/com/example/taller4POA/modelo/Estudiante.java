@@ -18,6 +18,10 @@ public class Estudiante {
     @Column (nullable = false, unique = true)
     private String correo;
 
+    public Estudiante() {
+        // Constructor por defecto requerido por JPA
+    }
+
     public Estudiante(Long id, String nombre, String apellido, String correo) {
         this.id = id;
         this.nombre = nombre;

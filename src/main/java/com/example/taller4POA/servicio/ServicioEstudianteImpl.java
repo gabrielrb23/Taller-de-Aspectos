@@ -6,7 +6,6 @@ import com.example.taller4POA.repositorio.RepositorioEstudiante;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ServicioEstudianteImpl implements ServicioEstudiante{
@@ -29,8 +28,8 @@ public class ServicioEstudianteImpl implements ServicioEstudiante{
 
 
     @Override
-    public Estudiante save(Estudiante producto) {
-        return repositorioEstudiante.save(producto);
+    public Estudiante save(Estudiante estudiante) {
+        return repositorioEstudiante.save(estudiante);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
                 ex.getUserMessage(),
                 request.getRequestURI()
         );
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
     // Clase interna para la respuesta de error
     private static class ErrorResponse {

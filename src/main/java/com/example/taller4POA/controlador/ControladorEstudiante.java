@@ -2,10 +2,11 @@ package com.example.taller4POA.controlador;
 
 
 import com.example.taller4POA.modelo.Estudiante;
-import com.example.taller4POA.modelo.Nota;
 import com.example.taller4POA.servicio.ServicioEstudiante;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,5 +44,11 @@ public class ControladorEstudiante {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         servicioEstudiante.deleteById(id);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public String handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
+        return "El correo electrónico ya está registrado.";
     }
 }
